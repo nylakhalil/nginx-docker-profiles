@@ -1,0 +1,38 @@
+version: "3"
+services:
+  web-go:
+    container_name: web-go
+    build:
+      context: ./go
+    environment:
+      - PORT=3000
+    ports:
+      - 3000:3000
+    profiles:
+      - all
+      - go
+  web-py:
+    container_name: web-py
+    build:
+      context: ./python
+    environment:
+      - PORT=3001
+    ports:
+      - 3001:3001
+    profiles:
+      - all
+      - python
+  nginx:
+    container_name: nginx
+    image: nginx:latest
+    command: "/configs/run.sh"
+    environment:
+      - NGINX_ENVSUBST_TEMPLATE_SUFFIX=".template"
+      - COMPOSE_PROFILES=${COMPOSE_PROFILES}
+    ports:
+      - 80:80
+    volumes:
+        - ./nginx/:/configs:ro
+        - ./nginx/:/etc/nginx/templates/
+        - ./nginx/:/usr/share/nginx/html/
+

@@ -11,7 +11,7 @@ else
 fi
 
 if [ "$COMPOSE_PROFILES" = "python" ] || [ "$COMPOSE_PROFILES" = "all" ]; then
-  echo "Starting Python Web Server"
+  echo "Starting Go Web Server"
   export PY_WEB_CONFIG="$(cat /config/locations/web-py.conf)"
 else
   echo "Skipping Python Web Server"
@@ -20,8 +20,11 @@ fi
 
 envsubst '$${GO_WEB_CONFIG} $${PY_WEB_CONFIG}' < /etc/nginx/templates/default.conf.template > /etc/nginx/conf.d/default.conf
 
-echo "Configured Nginx conf"
+echo -e "\nContainer DNS configs"
+cat /etc/resolv.conf
+
+echo -e "\nConfigured Nginx conf"
 cat /etc/nginx/conf.d/default.conf
 
-echo "Starting Nginx"
+echo -e "\nStarting Nginx"
 nginx -g 'daemon off;'

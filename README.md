@@ -1,6 +1,6 @@
 # Nginx Docker Profiles
 
-Nginx conf based on enabled [Docker Compose profiles](https://docs.docker.com/compose/profiles/). Quick development environment configs for Nginx [host not found in upstream error](https://stackoverflow.com/questions/32845674/setup-nginx-not-to-crash-if-host-in-upstream-is-not-found) when using Docker profiles.
+Nginx conf based on enabled [Docker Compose profiles](https://docs.docker.com/compose/profiles/). Quick development environment configs for Nginx [host not found in upstream error](https://stackoverflow.com/questions/32845674/setup-nginx-not-to-crash-if-host-in-upstream-is-not-found) when using Docker profiles. The container endpoint [domain names are specified in a variable](https://www.nginx.com/blog/dns-service-discovery-nginx-plus/) along with a resolver directive.
 
 ```sh
 nginx   | Starting Nginx

@@ -1,6 +1,6 @@
 # Nginx Docker Profiles
 
-Configures Nginx conf based on enabled [Docker Compose profiles](https://docs.docker.com/compose/profiles/). Quick development environment workaround for Nginx `host not found in upstream` error when using Docker profiles. 
+Nginx conf based on enabled [Docker Compose profiles](https://docs.docker.com/compose/profiles/). Quick development environment configs for Nginx [host not found in upstream error](https://stackoverflow.com/questions/32845674/setup-nginx-not-to-crash-if-host-in-upstream-is-not-found) when using Docker profiles.
 
 ```sh
 nginx   | Starting Nginx
@@ -9,6 +9,8 @@ nginx   | nginx: [emerg] host not found in upstream "web-go" in /etc/nginx/conf.
 ```
 
 ## Docker Compose
+
+Available on [http://localhost/](http://localhost/)
 
 ### All
 ```sh

@@ -24,6 +24,7 @@ services:
     command: "/config/run.sh"
     environment:
       - NGINX_ENVSUBST_TEMPLATE_SUFFIX=".template"
+      - DNS_RESOLVER_IP=127.0.0.11
       - COMPOSE_PROFILES=${COMPOSE_PROFILES}
     ports:
       - 80:80

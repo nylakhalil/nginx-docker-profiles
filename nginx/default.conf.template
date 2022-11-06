@@ -1,14 +1,21 @@
 server {
   listen       80;
   server_name  localhost;
-  resolver 127.0.0.11 valid=30s;
 
   location / {
-      root   /usr/share/nginx/html;
-      index  index.html index.htm;
+    root   /usr/share/nginx/html;
+    index  index.html index.htm;
   }
 
-  ${GO_WEB_CONFIG}  
+  location /go {
+    resolver ${DNS_RESOLVER_IP} valid=30s;
+    set $web_go web-go;
+    proxy_pass      http://$web_go:3000;
+  }
 
-  ${PY_WEB_CONFIG}
+  location /python {
+    resolver ${DNS_RESOLVER_IP} valid=30s;
+    set $web_py web-go;
+    proxy_pass      http://$web_py:3001;
+  }
 }

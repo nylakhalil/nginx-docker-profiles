@@ -15,7 +15,13 @@ server {
 
   location /python {
     resolver ${DNS_RESOLVER_IP} valid=30s;
-    set $web_py web-go;
+    set $web_py web-py;
     proxy_pass      http://$web_py:3001;
+  }
+
+  location /rust {
+    resolver ${DNS_RESOLVER_IP} valid=30s;
+    set $web_rs web-rs;
+    proxy_pass      http://$web_rs:3002;
   }
 }

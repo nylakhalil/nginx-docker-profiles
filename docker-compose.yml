@@ -18,6 +18,15 @@ services:
     profiles:
       - all
       - python
+  web-rs:
+    container_name: web-rs
+    build:
+      context: ./rust
+    environment:
+      - PORT=3002
+    profiles:
+      - all
+      - rust
   nginx:
     container_name: nginx
     image: nginx:latest

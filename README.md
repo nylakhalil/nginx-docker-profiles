@@ -38,3 +38,12 @@ COMPOSE_PROFILES=python docker compose up --build
 ```sh
 COMPOSE_PROFILES=python docker compose down
 ```
+
+### Rust
+```sh
+COMPOSE_PROFILES=rust docker compose up --build
+```
+
+```sh
+COMPOSE_PROFILES=rust docker compose down
+```
